@@ -1,0 +1,27 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+
+test:
+  path: /test
+  controller: App\Controller\AdminController::test
+
+some:
+  path: /some
+  controller: App\Controller\SomeController::index
+
+posts:
+  path: /posts/{page?}
+  controller:  App\Controller\PostController::index
+  methods:  [GET]
+
+post_create:
+  path: /create
+  controller: App\Controller\PostController::create
+  methods:  [GET]
+
+post_store:
+  path: /create
+  controller: App\Controller\PostController::store
+  methods:  [POST]

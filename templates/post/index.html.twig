@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Posts!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Posts</h1>
+
+        {% for post in posts %}
+    <ul>
+            <li>{{ post.title }}</li>
+            <li>{{ post.text }}</li>
+            <li>{{ post.description }}</li>
+            <li>{{ (post.status == 0 ? "Maybe" : (post.status == 1 ? "Yes" : (post.status == 2 ? "No" : 'default')))  }}</li>
+    </ul>
+        {% endfor %}
+
+    {% for i in 1..pageCount %}
+        <a href="{{ path('posts', {'page': i - 1}) }}" >{{ i }}</a>
+    {% endfor %}
+
+</div>
+{% endblock %}

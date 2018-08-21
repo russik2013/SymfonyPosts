@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Post!{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+        <div class="container">
+            {{ form_start(form, {'action': path('post_store')}) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+{% endblock %}
