@@ -21,9 +21,9 @@ class PostFormType extends AbstractType
             ->add('description', TextareaType::class)
             ->add('status', ChoiceType::class, array(
                 'choices'  => array(
-                'Maybe' => null,
-                'Yes' => true,
-                'No' => false,
+                'Maybe' => 0,
+                'Yes' => 1,
+                'No' => 2,
             ),
                 )
             )

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Post!{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+    <div class="example-wrapper">
+        <h1>Posts</h1>
+
+            <ul>
+                <li>{{ post.title }}</li>
+                <li>{{ post.text }}</li>
+                <li>{{ post.description }}</li>
+                <li>{{ (post.status == 0 ? "Maybe" : (post.status == 1 ? "Yes" : (post.status == 2 ? "No" : 'default')))  }}</li>
+            </ul>
+            {% if(post.SeoTitle) %}
+
+                Tags:
+                <ul>
+                    <li>{{  post.SeoTitle.SeoTitle}}</li>
+                    <li>{{  post.SeoTitle.SeoDescription}}</li>
+                </ul>
+            {% endif %}
+
+    </div>
+{% endblock %}

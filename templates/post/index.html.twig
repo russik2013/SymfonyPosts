@@ -12,12 +12,23 @@
     <h1>Posts</h1>
 
         {% for post in posts %}
-    <ul>
-            <li>{{ post.title }}</li>
-            <li>{{ post.text }}</li>
-            <li>{{ post.description }}</li>
-            <li>{{ (post.status == 0 ? "Maybe" : (post.status == 1 ? "Yes" : (post.status == 2 ? "No" : 'default')))  }}</li>
-    </ul>
+            <a href="{{ path('post_show', {'id': post.id}) }}" >Post:</a>
+            <button onclick='window.location.href="{{ path('post_edit', {'id': post.id}) }}"'>Update</button>
+            <button onclick='window.location.href="{{ path('post_delete', {'id': post.id}) }}"'>Delete</button>
+        <ul>
+                <li>{{ post.title }}</li>
+                <li>{{ post.text }}</li>
+                <li>{{ post.description }}</li>
+                <li>{{ (post.status == 0 ? "Maybe" : (post.status == 1 ? "Yes" : (post.status == 2 ? "No" : 'default')))  }}</li>
+        </ul>
+                {% if(post.SeoTitle) %}
+            Tags:
+                <ul>
+                    <li>{{  post.SeoTitle.SeoTitle}}</li>
+                    <li>{{  post.SeoTitle.SeoDescription}}</li>
+                </ul>
+                {% endif %}
+
         {% endfor %}
 
     {% for i in 1..pageCount %}

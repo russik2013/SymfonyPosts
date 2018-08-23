@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Post!{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+    <div class="example-wrapper">
+        <h1>Users</h1>
+
+            <ul>
+                <li>{{ user.name }}</li>
+            </ul>
+            {% if(user.MetaId) %}
+
+                <script>
+
+                    console.log("{{  user.MetaId.PostId.Text }}");
+
+                </script>
+
+                Post:
+
+                <ul>
+                    <li>{{  user.MetaId.PostId.Title }}</li>
+                    <li>{{  user.MetaId.PostId.Text }}</li>
+                    <li>{{  user.MetaId.PostId.Description }}</li>
+                    <li>{{  user.MetaId.PostId.Status }}</li>
+
+
+                </ul>
+
+
+            {% endif %}
+
+    </div>
+
+{% endblock %}

@@ -41,6 +41,11 @@ class Post
      */
     private $create_date;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\MetaTags", mappedBy="post_id", cascade={"persist", "remove"})
+     */
+    private $seo_title;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +107,23 @@ class Post
     public function setCreateDate(\DateTimeInterface $create_date): self
     {
         $this->create_date = $create_date;
+
+        return $this;
+    }
+
+    public function getSeoTitle(): ?MetaTags
+    {
+        return $this->seo_title;
+    }
+
+    public function setSeoTitle(MetaTags $seo_title): self
+    {
+        $this->seo_title = $seo_title;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $seo_title->getPostId()) {
+            $seo_title->setPostId($this);
+        }
 
         return $this;
     }
